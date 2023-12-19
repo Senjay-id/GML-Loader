@@ -1,4 +1,4 @@
-﻿#region Using directives
+#region Using directives
 using UndertaleModLib;
 using UndertaleModLib.Models;
 using System.Diagnostics;
@@ -39,7 +39,7 @@ string gameFolderPath = Path.GetDirectoryName(gameDataPath)!;
 #endregion
 
 #region Program
-Console.WriteLine("Loading game data...");
+Console.WriteLine("Reading game data...");
 
 if (File.Exists(backupDataPath))
 {
@@ -78,7 +78,7 @@ DisableAllSyncBindings();
 Console.WriteLine("Code Imported");
 
 Console.WriteLine("Recompiling the data...");
-using (var stream = new FileStream($"../data.win", FileMode.Create, FileAccess.ReadWrite))
+using (var stream = new FileStream(gameDataPath, FileMode.Create, FileAccess.ReadWrite))
     UndertaleIO.Write(stream, Data);
 
 Console.WriteLine("Launching the game");
